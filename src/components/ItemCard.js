@@ -61,8 +61,8 @@ const ItemCard = ({ item, outOfStock }) => {
         <p>Price: {item.price}</p>
         <p>
           {outOfStock
-            ? `Left in stock: ${item.stock}`
-            : `Temporary Out of Stock`}
+            ? `Temporary Out of Stock`
+            : `Left in stock: ${item.stock}`}
         </p>
       </StyledItemProps>
 
