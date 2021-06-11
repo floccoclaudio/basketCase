@@ -16,7 +16,10 @@ const ItemList = ({ items }) => {
   return (
     <StyledContainer>
       {items.map((item) => {
-        return <ItemCard item={item} />;
+        if (item.stock <= 0) {
+          return <ItemCard item={item} outOfStock={true} />;
+        }
+        return <ItemCard item={item} outOfStock={false} />;
       })}
     </StyledContainer>
   );

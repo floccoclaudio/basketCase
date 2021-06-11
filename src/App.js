@@ -3,7 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import ItemList from './ItemList';
 import Basket from './Basket';
-//harcoded items
+
+//#region - harcoded items
 const items = [
   {
     label: 'mouse',
@@ -15,13 +16,13 @@ const items = [
     label: 'keyboard',
     price: 15,
     id: 'keyboardID',
-    stock: 20,
+    stock: 1,
   },
   {
     label: 'headphones',
     price: 60,
     id: 'headphonesID',
-    stock: 10,
+    stock: 0,
   },
   {
     label: 'laptop',
@@ -30,8 +31,7 @@ const items = [
     stock: 5,
   },
 ];
-
-console.log(items);
+//#endregion
 
 const App = () => {
   return (

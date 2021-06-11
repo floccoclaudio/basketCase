@@ -5,7 +5,8 @@ export const basketSlice = createSlice({
   initialState: [],
   reducers: {
     addToBasket: (state, action) => {
-      state.push(action.payload);
+      console.log(action);
+      //state.push(action.payload);
     },
   },
 });

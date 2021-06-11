@@ -41,10 +41,13 @@ const StyledBtnAdd = styled('button')`
     background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
     background-color: #408c99;
   }
+  :disabled {
+    text-decoration: line-through;
+  }
 `;
 //#endregion
 
-const ItemCard = ({ item }) => {
+const ItemCard = ({ item, outOfStock }) => {
   const dispatch = useDispatch();
 
   const onClickAdd = (item) => {
@@ -56,9 +59,17 @@ const ItemCard = ({ item }) => {
       <StyledItemProps>
         <p>Item: {item.label}</p>
         <p>Price: {item.price}</p>
-        <p>Left in stock: {item.stock}</p>
+        <p>
+          {outOfStock
+            ? `Left in stock: ${item.stock}`
+            : `Temporary Out of Stock`}
+        </p>
       </StyledItemProps>
-      <StyledBtnAdd onClick={() => onClickAdd(item)}>
+
+      <StyledBtnAdd
+        disabled={outOfStock === true}
+        onClick={() => onClickAdd(item)}
+      >
         Add to basket
       </StyledBtnAdd>
     </StyledItemCard>
