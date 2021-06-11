@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
+import ItemCard from './components/ItemCard';
+//#region - Styled components
 const StyledContainer = styled('div')`
   margin: 0 auto;
   width: 50%;
@@ -9,8 +12,18 @@ const StyledContainer = styled('div')`
   flex-direction: column;
 `;
 
+//#endregion
+
 const Basket = () => {
-  return <StyledContainer>Basket case here</StyledContainer>;
+  const selectedItem = useSelector((state) => state.itemSliceReducer);
+
+  return (
+    <StyledContainer>
+      {selectedItem.map((item) => {
+        return <ItemCard item={item} />;
+      })}
+    </StyledContainer>
+  );
 };
 
 export default Basket;
