@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { addToInventory } from './features/itemSlice';
+import { useDispatch } from 'react-redux';
+
 import Navbar from './Navbar';
 import ItemList from './ItemList';
 import Basket from './Basket';
 
 //#region - harcoded items
-const items = [
+const inventory = [
   {
     label: 'mouse',
     price: 10,
@@ -33,7 +36,14 @@ const items = [
 ];
 //#endregion
 
+//on the first render put all the items in the inventory ans save it to item variables
+
+
 const App = () => {
+  useEffect(() => {
+    //for every obj of inventory array dispatch addToInventory in the store
+    const items = inventory.map((item) => dispatch(addToInventory(item)))
+  }, [])
   return (
     <div>
       <BrowserRouter>
