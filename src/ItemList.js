@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ItemCard from './components/ItemCard';
+import ItemCard from './components/ItemCardList';
 //#region - Styled components
 const StyledContainer = styled('div')`
   margin: 0 auto;

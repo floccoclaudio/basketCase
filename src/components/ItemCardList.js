@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { addToBasket } from '../features/itemSlice';
+import { addToBasket } from '../features/basketSlice';
 import { useDispatch } from 'react-redux';
-
 //#region - styled components -
 
 const StyledItemCard = styled('div')`
@@ -49,8 +48,8 @@ const StyledBtnAdd = styled('button')`
 
 const ItemCard = ({ item, outOfStock }) => {
   const dispatch = useDispatch();
-
   const onClickAdd = (item) => {
+    // console.log(item);
     dispatch(addToBasket(item));
   };
 
