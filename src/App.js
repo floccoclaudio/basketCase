@@ -1,49 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { addToInventory } from './features/itemSlice';
-import { useDispatch } from 'react-redux';
-
+import { useSelector } from 'react-redux';
 import Navbar from './Navbar';
 import ItemList from './ItemList';
 import Basket from './Basket';
 
-//#region - harcoded items
-const inventory = [
-  {
-    label: 'mouse',
-    price: 10,
-    id: 'mouseID',
-    stock: 15,
-  },
-  {
-    label: 'keyboard',
-    price: 15,
-    id: 'keyboardID',
-    stock: 1,
-  },
-  {
-    label: 'headphones',
-    price: 60,
-    id: 'headphonesID',
-    stock: 0,
-  },
-  {
-    label: 'laptop',
-    price: 250,
-    id: 'laptopID',
-    stock: 5,
-  },
-];
-//#endregion
-
 //on the first render put all the items in the inventory ans save it to item variables
 
-
 const App = () => {
-  useEffect(() => {
-    //for every obj of inventory array dispatch addToInventory in the store
-    const items = inventory.map((item) => dispatch(addToInventory(item)))
-  }, [])
+  //selector state e prende state dello slice interessato alias state.nomeSliceReducer poiche nel rootreducer l abbiamo assegnato al nome inventory
+  const items = useSelector((state) => state.inventory);
+  console.log(items);
   return (
     <div>
       <BrowserRouter>

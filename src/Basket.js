@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
-import ItemCard from './components/ItemCard';
+import ItemCardBasket from './components/ItemCardBasket';
 //#region - Styled components
 const StyledContainer = styled('div')`
   margin: 0 auto;
@@ -15,12 +15,12 @@ const StyledContainer = styled('div')`
 //#endregion
 
 const Basket = () => {
-  const selectedItem = useSelector((state) => state.itemSliceReducer);
+  const selectedItem = useSelector((state) => state.basket);
 
   return (
     <StyledContainer>
       {selectedItem.map((item) => {
-        return <ItemCard item={item} />;
+        return <ItemCardBasket item={item} />;
       })}
     </StyledContainer>
   );

@@ -1,24 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-export const basketSlice = createSlice({
-  name: 'basket',
-  initialState: [],
-  reducers: {
-    addToBasket: (state, action) => {
-      console.log(action);
-      //state.push(action.payload);
-    },
+const inventory = [
+  {
+    label: 'mouse',
+    price: 10,
+    id: 'mouseID',
+    stock: 15,
   },
+  {
+    label: 'keyboard',
+    price: 15,
+    id: 'keyboardID',
+    stock: 1,
+  },
+  {
+    label: 'headphones',
+    price: 60,
+    id: 'headphonesID',
+    stock: 0,
+  },
+  {
+    label: 'laptop',
+    price: 250,
+    id: 'laptopID',
+    stock: 5,
+  },
+];
+
+export const inventorySlice = createSlice({
   name: 'inventory',
-  initialState: [],
+  initialState: [...inventory],
   reducers: {
-    addToInventory: (state, action) => {
-      console.log(action)
-      //state.push(action.payload)
-    }
-  }
+    removeFromInventory: (state, payload) => {},
+  },
 });
 
-export const { addToBasket, addToInventory } = basketSlice.actions;
-
-export default basketSlice.reducer;
+export default inventorySlice.reducer;
